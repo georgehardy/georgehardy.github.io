@@ -1,3 +1,5 @@
+<meta name="google-site-verification"
+             content="<meta name="google-site-verification" content="40VFHmK3frc9FyV4aJ9UBn9mezWTCMJyu_yuH7ePasM" />" />
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/georgehardy/georgehardy.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
