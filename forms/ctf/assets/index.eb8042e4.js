@@ -60,7 +60,7 @@ object-assign
     height: 100%;
   }
 `;function Vn(){return e.createElement(Un,null,e.createElement(Mn,{to:"/"},e.createElement("img",{src:"/forms/ctf/assets/ctf_logo_white.66b8c0a1.png"})))}const Bn=jt.div`
-  flex: 0 1;
+  flex-shrink: 0;
   background-color: #292728;
   padding: 50px;
   text-align: center;
