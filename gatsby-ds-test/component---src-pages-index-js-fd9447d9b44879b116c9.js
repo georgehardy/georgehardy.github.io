@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{RXBc:function(e,t,a){"use strict";a.r(t),a.d(t,"query",(function(){return u})),a.d(t,"default",(function(){return o}));var n=a("q1tI"),r=a.n(n),u="3771268930";function o(e){var t=e.data.allMongodbTakiwaWarehouseDatasetStructures.edges;return console.log(t),r.a.createElement("div",null,t.map((function(e){var t=e.node;return r.a.createElement("p",{key:t.id},r.a.createElement("a",{href:"/datasets/"+t.id},t.id," - ",t.datasetLabel))})))}}}]);
-//# sourceMappingURL=component---src-pages-index-js-fd9447d9b44879b116c9.js.map
