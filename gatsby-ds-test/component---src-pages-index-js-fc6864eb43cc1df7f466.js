@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{RXBc:function(e,n,t){"use strict";t.r(n),t.d(n,"query",(function(){return r})),t.d(n,"default",(function(){return u}));var a=t("q1tI"),o=t.n(a),r="3771268930";function u(e){var n=e.data.allMongodbTakiwaWarehouseDatasetStructures.edges;return console.log(n),o.a.createElement("div",null,n.map((function(e){var n=e.node;return console.log(n),o.a.createElement("p",{key:n.id},n.datasetName," - ",n.datasetLabel)})))}}}]);
+//# sourceMappingURL=component---src-pages-index-js-fc6864eb43cc1df7f466.js.map
