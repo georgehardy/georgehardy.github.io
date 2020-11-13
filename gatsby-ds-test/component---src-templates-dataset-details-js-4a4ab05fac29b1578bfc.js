@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{lypw:function(t,e,n){"use strict";n.r(e),n.d(e,"default",(function(){return u}));var a=n("q1tI"),r=n.n(a);function u(t){var e=t.pageContext.dataset;return r.a.createElement("div",null,"Name: ",e.datasetLabel)}}}]);
-//# sourceMappingURL=component---src-templates-dataset-details-js-4a4ab05fac29b1578bfc.js.map
