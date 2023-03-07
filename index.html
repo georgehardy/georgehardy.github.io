@@ -1,10 +1,33 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta name="google-site-verification" content="40VFHmK3frc9FyV4aJ9UBn9mezWTCMJyu_yuH7ePasM" />
-    
-    <title>george</title>
+    <title>Google Places Autocomplete API</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places"></script>
   </head>
   <body>
-    <h5>George</h5>
+    <input id="autocomplete" placeholder="Enter your address" type="text" />
+    <script>
+      var apiKey = JFCustomWidget.getQueryString("apiKey");
+
+      // Replace API_KEY with the actual API key
+      var scriptTag = document.querySelector('script[src^="https://maps.googleapis.com/maps/api/js?key=API_KEY"]');
+      scriptTag.src = scriptTag.src.replace('API_KEY', "apiKey");
+
+      // Initialize the autocomplete object
+      var autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("autocomplete"),
+        {
+          componentRestrictions: { country: "nz" },
+          types: ["address"]
+        }
+      );
+
+      // Get the details of the selected place
+      autocomplete.addListener("place_changed", function () {
+        var place = autocomplete.getPlace();
+        JotForm.setField("input", place.formatted_address);
+        JotForm.runCalculations();
+      });
+    </script>
   </body>
 </html>
