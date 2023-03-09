@@ -2,31 +2,41 @@
 <html>
   <head>
     <title>Google Places Autocomplete API</title>
+
     <script type="text/javascript" src="//js.jotform.com/JotFormCustomWidget.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&libraries=places"></script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNcDlAqVvFy-gOTByeGhWp7tVkU4O2g7g&libraries=places"></script>
   </head>
   <body>
     <input id="autocomplete" placeholder="Enter your address" type="text" />
     <script>
-      var apiKey = JFCustomWidget.getQueryString("apiKey");
 
-      // Replace API_KEY with the actual API key
-      var scriptTag = document.querySelector('script[src^="https://maps.googleapis.com/maps/api/js?key=API_KEY"]');
-      scriptTag.src = scriptTag.src.replace('API_KEY', "apiKey");
+      JFCustomWidget.subscribe("ready", function(msg) {
+        console.log('ready!'. msg)
+      })
+
+      // var apiKey = JFCustomWidget.getQueryString("apiKey");
+
 
       // Initialize the autocomplete object
       var autocomplete = new google.maps.places.Autocomplete(
         document.getElementById("autocomplete"),
         {
           componentRestrictions: { country: "nz" },
-          types: ["address"]
+          // types: ["address"]
         }
       );
 
       // Get the details of the selected place
       autocomplete.addListener("place_changed", function () {
         var place = autocomplete.getPlace();
-        JotForm.setField("input", place.formatted_address);
+        var address = place.formatted_address;
+        var lat  = place.geometry.location.lat()
+        var lng  = place.geometry.location.lng()
+        console.log({lat,lng, address})
+        JotForm.setField("address", address);
+        JotForm.setField("lat", lat);
+        JotForm.setField("lng", lng);
         JotForm.runCalculations();
       });
     </script>
