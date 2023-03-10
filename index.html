@@ -26,7 +26,7 @@
         var lng = place.geometry.location.lng();
         window.autocompleteValid = true;
         // window.autocompleteValue = 'lat: ' + lat + ' lng: ' + lng + ' address: ' + address;
-        window.autocompleteValue = '{ lat: ' + lat + ', lng: ' + lng + ', address: ' + address + '}';
+        window.autocompleteValue = '{ lat: ' + lat + ', lng: ' + lng + ', address: "' + address + '" }';
         // window.autocompleteValue = JSON.stringify({lat,lng,address})
         console.log(window.autocompleteValue)
         JFCustomWidget.sendData(window.autocompleteValue)
