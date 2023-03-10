@@ -11,20 +11,7 @@
   <input id="autocomplete" placeholder="Enter your address" type="text" />
   <script>
 
-    JFCustomWidget.subscribe("ready", function (msg) {
-      console.log('ready!', msg)
-
-      var validAddress = false;
-      var returnValue = ''
-
-      var placesApiKey = JFCustomWidget.getWidgetSetting('placesApiKey');
-      var script = document.createElement('script');
-      script.src = 'https://maps.googleapis.com/maps/api/js?key=' + placesApiKey + '&libraries=places&callback=googleReady';
-      script.async = false;
-      document.head.appendChild(script);
-
-
-     function googleReady () {
+function googleReady () {
         var autocomplete = new google.maps.places.Autocomplete(
           document.getElementById("autocomplete"),
           {
@@ -37,20 +24,35 @@
           var address = place.formatted_address;
           var lat = place.geometry.location.lat();
           var lng = place.geometry.location.lng();
-          validAddress = true;
-          returnValue = JSON.stringify({ address, lat, lng })
-          console.log('set return', returnValue)
+          window.autocompleteValid = true;
+          window.autocompleteValue = JSON.stringify({ address, lat, lng })
+          console.log('set return', autocompleteValue)
         });
 
       }
+
+    JFCustomWidget.subscribe("ready", function (msg) {
+      console.log('ready!', msg)
+
+      window.autocompleteValid = false;
+      window.autocompleteValue = ''
+
+      var placesApiKey = JFCustomWidget.getWidgetSetting('placesApiKey');
+      var script = document.createElement('script');
+      script.src = 'https://maps.googleapis.com/maps/api/js?key=' + placesApiKey + '&libraries=places&callback=googleReady';
+      script.async = false;
+      document.head.appendChild(script);
+
+
+
 
 
       JFCustomWidget.subscribe("submit", function () {
         //prepare your data
         var data = { valid: false };
-        if (validAddress) {
+        if (window.autocompleteValid) {
           data.valid = true
-          data.value = returnValue
+          data.value = windows.autocompleteValue
         }
 
         JFCustomWidget.sendResult(data);
