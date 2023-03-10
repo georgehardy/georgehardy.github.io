@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <input id="autocomplete" placeholder="Enter your address" type="text" />
+  <input id="autocomplete" placeholder="Enter your address" type="text" style="width:95%"/>
   <script>
 
 function googleReady () {
@@ -55,7 +55,7 @@ function googleReady () {
           data.value = window.autocompleteValue
         }
 
-        JFCustomWidget.sendResult(data);
+        JFCustomWidget.sendSubmit(data);
       });
 
 
