@@ -19,7 +19,7 @@
 
       var placesApiKey = JFCustomWidget.getWidgetSetting('placesApiKey');
       var script = document.createElement('script');
-      script.src = 'https://maps.googleapis.com/maps/api/js?key=' + placesApiKey + '&libraries=places';
+      script.src = 'https://maps.googleapis.com/maps/api/js?key=' + placesApiKey + '&libraries=places&callback=googleReady';
       script.async = false;
       document.head.appendChild(script);
 
