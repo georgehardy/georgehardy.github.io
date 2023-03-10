@@ -52,7 +52,7 @@ function googleReady () {
         var data = { valid: false };
         if (window.autocompleteValid) {
           data.valid = true
-          data.value = windows.autocompleteValue
+          data.value = window.autocompleteValue
         }
 
         JFCustomWidget.sendResult(data);
