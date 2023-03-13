@@ -10,10 +10,10 @@
 <body>
   <input id="autocomplete" placeholder="Enter your address" type="text" style="width:95%" />
   <script>
-    function buildAutocompleteConfig () {
+    function buildAutocompleteConfig() {
       var config = {}
       if (window.options.restrictCountry) {
-        config.componentRestrictions.country = window.options.restrictCountry;
+        config.componentRestrictions = { country: window.options.restrictCountry };
       }
 
       if (window.options.biasLocation) {
@@ -41,7 +41,7 @@
         window.autocompleteValid = true;
         // window.autocompleteValue = 'lat: ' + lat + ' lng: ' + lng + ' address: ' + address;
         window.autocompleteValue = '{ lat: ' + lat + ', lng: ' + lng + ', address: "' + address + '" }';
-        
+
         console.log(window.autocompleteValue)
         JFCustomWidget.sendData(window.autocompleteValue)
       });
@@ -56,7 +56,7 @@
 
       // Gets api key from Jotform then initialises gmaps script
       var placesApiKey = JFCustomWidget.getWidgetSetting('placesApiKey');
-      
+
       var script = document.createElement('script');
       script.src = 'https://maps.googleapis.com/maps/api/js?key=' + placesApiKey + '&libraries=places&callback=googleReady';
       script.async = false;
