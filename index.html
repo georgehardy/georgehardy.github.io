@@ -35,9 +35,11 @@
 
       autocomplete.addListener("place_changed", function () {
         var place = autocomplete.getPlace();
+        console.log('PLACE', place)
         var address = place.formatted_address;
         var lat = place.geometry.location.lat();
         var lng = place.geometry.location.lng();
+        // const place_id = place.place_id
         window.autocompleteValid = true;
         // window.autocompleteValue = 'lat: ' + lat + ' lng: ' + lng + ' address: ' + address;
         window.autocompleteValue = '{ lat: ' + lat + ', lng: ' + lng + ', address: "' + address + '" }';
